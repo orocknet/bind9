@@ -1,6 +1,5 @@
 $TTL 3600
 @   IN   SOA  localhost. root.localhost. ( 1 10800 10800 10800 10800 )
 @   IN   NS   localhost.
-@   IN   A 0.0.0.0
 
 $INCLUDE "/etc/bind/blacklist.zones"
