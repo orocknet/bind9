@@ -1,0 +1,77 @@
+acl local {
+        192.168.0.0/16;
+        172.16.0.0/12;
+        10.0.0.0/8;
+        localhost;
+        localnets;
+};
+options {
+	directory "/var/cache/bind";
+	recursion yes;
+	allow-recursion { local; };
+	allow-query-cache { local; };
+	allow-query { local; };
+	allow-transfer { none; };
+	allow-update { none; };
+	allow-notify { localhost; };
+//	auto-dnssec maintain;
+//	inline-signing yes;
+	dnssec-enable no;
+	dnssec-validation no;
+	dnssec-lookaside no;
+	minimal-responses yes;
+	max-udp-size 4096;
+	max-cache-size 256M;
+	max-cache-ttl 3600;
+	max-ncache-ttl 3600;
+	cleaning-interval 120;
+	key-directory "/etc/bind/";
+	bindkeys-file "/etc/bind/bind.keys";
+	response-policy {
+		zone "forcesafesearch.zone";
+		zone "whitelist.zone";
+		zone "adstracker.zone";
+		zone "trustpositif.zone";
+		zone "blackdom.zone";
+	};
+	filter-aaaa-on-v4 yes;
+//	rate-limit { responses-per-second 10; log-only yes; };
+	forward only;
+	forwarders {
+//		192.168.5.10 port 5353;
+		8.8.8.8;
+	};
+	auth-nxdomain no;
+//	listen-on-v6 port 53 { any; };
+	listen-on port 53 { any; };
+	querylog yes;
+	version "unknown";
+	};
+// statistics-channels {
+//	inet 127.0.0.1 port 8053 allow { 127.0.0.1; };
+// };
+zone "forcesafesearch.zone" IN {
+	type master;
+	allow-transfer { none; };
+	file "/etc/bind/zones/forcesafesearch.zone";
+};
+zone "whitelist.zone" IN {
+	type master;
+	allow-transfer { none; };
+	file "/etc/bind/zones/whitelist.zone";
+};
+zone "adstracker.zone" IN {
+	type master;
+	allow-transfer { none; };
+	file "/etc/bind/zones/adstracker.zone";
+};
+zone "trustpositif.zone" IN {
+	type master;
+	allow-transfer { none; };
+	file "/etc/bind/zones/trustpositif.zone";
+};
+zone "blackdom.zone" IN {
+	type master;
+	allow-transfer { none; };
+	file "/etc/bind/zones/blackdom.zone";
+};
