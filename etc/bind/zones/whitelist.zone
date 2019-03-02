@@ -1,0 +1,6 @@
+$TTL 86400
+@   IN   SOA  localhost. root.localhost. ( 11122018 10800 10800 10800 10800 )
+@   IN   NS   localhost.
+
+gmail-smtp-in.l.google.com CNAME rpz-passthru.
+media.licdn.com CNAME rpz-passthru.
