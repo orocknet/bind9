@@ -1,0 +1,8 @@
+$TTL 86400
+@   IN   SOA   localhost. root.localhost. ( 02032019 10800 10800 10800 10800 )
+@   IN   NS   localhost.
+
+$INCLUDE "/etc/bind/zones/blackdom.blocklist"
+$INCLUDE "/etc/bind/zones/badsite.blocklist"
+$INCLUDE "/etc/bind/zones/eset.blocklist"
+$INCLUDE "/etc/bind/zones/proxyauth.blocklist"
