@@ -1,0 +1,6 @@
+$TTL 86400
+@   IN   SOA   localhost. root.localhost. ( 02032019 10800 10800 10800 10800 )
+@   IN   NS   localhost.
+
+$INCLUDE "/etc/bind/zones/adstracker.blocklist"
+$INCLUDE "/etc/bind/zones/ads.blocklist"
