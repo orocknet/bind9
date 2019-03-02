@@ -1,9 +1,0 @@
-$TTL 3600
-@   IN   SOA  localhost. root.localhost. ( 1 10800 10800 10800 10800 )
-@   IN   NS   localhost.
-
-*.fbcdn.net CNAME rpz-passthru.
-*.facebook.com CNAME rpz-passthru.
-*.instagram.com CNAME rpz-passthru.
-mail.live.com CNAME rpz-passthru.
-www.reddit.com CNAME rpz-passthru.
